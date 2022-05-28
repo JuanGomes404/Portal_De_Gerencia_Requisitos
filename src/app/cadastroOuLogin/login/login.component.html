@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (submit)="login()">
+  <div class="container">
+    <p>Login</p>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+
+        <input
+          matInput
+          placeholder="xx@dominio.com.br"
+          formControlName="email"
+          />
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+          <mat-label>Senha</mat-label>
+
+          <input
+            matInput
+            placeholder="Insira sua senha"
+            formControlName ="senha"
+            type="password"
+          />
+
+      </mat-form-field>
+      <button mat-raised-button [disabled]="loginForm.invalid">Entrar</button>
+      <div id="cadastreSe">
+     <a class="link" (click) ="irCadastrar()">Cadastre-se aqui</a>
+      </div>
+  </div>
+</form>

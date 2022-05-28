@@ -1,0 +1,9 @@
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 300px;
+  box-shadow: 8px 10px 8px #88888831;
+  padding: 125px;
+}
