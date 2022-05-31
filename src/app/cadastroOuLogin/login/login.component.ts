@@ -19,13 +19,25 @@ export class LoginComponent implements OnInit {
       senha: [,Validators.required]
     });
   }
+  get email(){
+    return this.loginForm.get('email')?.value;
+  }
+  get senha(){
+    return this.loginForm.get('senha')?.value;
+  }
   irCadastrar(){
       this.r.navigate(['cadastro']);
   }
   login(){
-    if(this.auth.authenticate(this.loginForm.get('email')?.value, this.loginForm.get('senha')?.value)){
-      //mudar rota para pagina de inicio
-    }
+   if(!this.loginForm.valid){
+     return;
+   }
+   const {email, senha} = this.loginForm.value;
+   this.auth.authenticate(this.email, this.senha).subscribe(() =>{
+     this.r.navigate(['home']);
+
+
+   });
 
   }
 }
