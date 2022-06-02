@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Requisito } from 'src/app/models/requisito';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-page-inicial',
@@ -13,9 +14,7 @@ export class PageInicialComponent implements OnInit {
 
   constructor(private r: Router, private serviceReq: CadastraRequisitoService, private changeDetectorRef: ChangeDetectorRef) { }
 
-  ELEMENT_DATA = [
-    {ecossistema: '',  projeto: '', descricao: '', tipoDeReq: ''}
-  ]
+
   @ViewChild('table') table: MatTable<any>;
   dataSource = new MatTableDataSource<Requisito>(this.serviceReq.reqs);
   ngOnInit(): void {
@@ -32,6 +31,6 @@ export class PageInicialComponent implements OnInit {
     this.r.navigate(['cadastrarequisito']);
   }
 
-  displayedColumns: String[] = ['ecos', 'projeto', 'descricao'];
+  displayedColumns: String[] = ['ecos', 'projeto', 'descricao', 'email'];
 
 }

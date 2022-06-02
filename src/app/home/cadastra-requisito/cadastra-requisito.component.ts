@@ -19,7 +19,6 @@ export class CadastraRequisitoComponent implements OnInit {
     {cod: 'PLA', nomeReq: 'Plataforma'}
   ]
   constructor(private frm:FormBuilder, private service: CadastraRequisitoService, private rota: Router, private auth: AuthService) { }
-
   ngOnInit(): void {
     this.cadastraRequisitoForm = this.frm.group({
       ecos:['',Validators.required],
@@ -41,13 +40,17 @@ export class CadastraRequisitoComponent implements OnInit {
     return this.cadastraRequisitoForm.get('tipoReq')?.value;
   }
   cadastrarReq(){
-    console.log(this.descricao +' '+ this.ecos + ' '+ this.projeto + ' ' + this.tipoReq);
-    const r = new Requisito(this.descricao, this.ecos, this.projeto, this.tipoReq);
-    console.log(r.descricao+' '+ r.ecossistema + ' '+ r.projeto + ' ' + r.tipodeReq);
+    console.log(this.auth.getUsuarioAtual());
+    let email = this.auth.getUsuarioAtual();
+    const r = new Requisito(email,this.descricao, this.ecos, this.projeto, this.tipoReq);
+
 
     this.service.uparRequisito(r);
     if(this.cadastraRequisitoForm.valid){
       this.rota.navigate(['home']);
     }
+  }
+  voltarHome(){
+    this.rota.navigate(['home']);
   }
 }

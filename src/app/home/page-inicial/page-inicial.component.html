@@ -1,6 +1,6 @@
 <section class="container">
-  <h1>Lista de Requisitos Cadastrados</h1>
-  <button (click)="acionarRota()" mat-raised-button color="primary"> Cadastre seu requisito aqui</button>
+  <h1 style="text-align: center;">Lista de Requisitos Cadastrados</h1>
+
 
   <table mat-table [dataSource]="dataSource" class="container">
    <ng-container matColumnDef="ecos">
@@ -17,8 +17,13 @@
     <th mat-header-cell *matHeaderCellDef>Descrição</th>
     <td mat-cell *matCellDef="let req">{{req.descricao}}</td>
    </ng-container>
+   <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let req">{{req.email}}</td>
+   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <button (click)="acionarRota()" mat-raised-button color="primary" id="btn-cadastro"> Cadastre seu requisito aqui</button>
 </section>

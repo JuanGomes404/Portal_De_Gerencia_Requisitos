@@ -1,9 +1,24 @@
 <header>
-  <h1>Portal de Gerência de Requisitos - PGR</h1>
-  <ul>
-    <li>
-      <button mat-raised-button color="basic" routerLink="">Login</button>
-    </li>
+  <mat-toolbar color="primary" class="toolbar">
+    <span>Portal de Gerência de Requisitos - PGR</span>
+    <ng-container
+      *ngIf="authService.currentUser$ | async as user; else loginButton"
+    >
+      <button mat-button matTooltip="Sair" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </ng-container>
 
-  </ul>
+    <ng-template #loginButton>
+      <button
+        mat-button
+        matTooltip="Realize seu login no PGR"
+        (click)="login()"
+      >
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    </ng-template>
+  </mat-toolbar>
 </header>
