@@ -1,24 +1,19 @@
-<form [formGroup]="cadastroForm" (submit)="register()">
-  <div class="container">
-    <p>Cadastro</p>
-    <!-- Nome e Sobrenome com parte do cadastro ou trocar por nome de usuário? pensar em nickname é uma possibilidade?-->
-    <mat-form-field>
-      <mat-label>Nome</mat-label>
-      <input formControlName ="nome" matInput placeholder="Insira seu primeiro nome">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Sobrenome</mat-label>
-      <input formControlName="sobrenome" matInput placeholder="Insira seu sobrenome">
-    </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput placeholder="xx@dominio.com.br" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Senha</mat-label>
-        <input formControlName="senha" matInput placeholder="Insira sua senha" />
+<form [formGroup]="cadastroForm" class="container" (submit)="register()">
 
-      </mat-form-field>
-      <button mat-raised-button [disabled]="cadastroForm.invalid">Entrar</button>
-  </div>
+    <h1>Criar Conta</h1>
+    <!-- Nome e Sobrenome com parte do cadastro ou trocar por nome de usuário? pensar em nickname é uma possibilidade?-->
+
+        <input formControlName ="nomeCompleto" matInput placeholder="Nome">
+        <input formControlName = "instituicao" matInput placeholder="Instituição"/>
+
+        <div class="linha-cidade-uf">
+          <input formControlName = "UF" matInput placeholder="Estado"/>
+          <input formControlName = "cidade" matInput placeholder="Cidade"/>
+        </div>
+
+        <input formControlName="email" matInput placeholder="Email" />
+        <input formControlName="senha" matInput placeholder="Senha" />
+
+      <button [disabled]="cadastroForm.invalid">Cadastrar</button>
+
 </form>

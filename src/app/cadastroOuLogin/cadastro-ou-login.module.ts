@@ -7,9 +7,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeLoginRegisterComponent } from './home-login-register/home-login-register.component';
 
 @NgModule({
-  declarations: [LoginComponent, CadastroComponent],
+  declarations: [LoginComponent, CadastroComponent, HomeLoginRegisterComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

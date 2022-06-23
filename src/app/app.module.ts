@@ -11,10 +11,12 @@ import { HomeModule } from './home/home-module.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ConfigComponent,
 
   ],
   imports: [

@@ -1,33 +1,28 @@
-<form [formGroup]="loginForm" (submit)="login()">
-  <div class="container">
-    <p>Login</p>
 
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-
-        <input
-          matInput
-          placeholder="xx@dominio.com.br"
-          formControlName="email"
-          />
-
-      </mat-form-field>
-
-      <mat-form-field>
-
-          <mat-label>Senha</mat-label>
+<form [formGroup]="loginForm" class = "container"(submit)="login()">
+      <h1 class="title-bem_vindo">Bem-Vindo</h1>
+      <div class="container-titles">
+        <h2 class="title-login">Login</h2>
+      </div>
 
           <input
             matInput
-            placeholder="Insira sua senha"
+            placeholder="Email"
+            formControlName="email"
+            />
+
+          <input
+            matInput
+            placeholder="Senha"
             formControlName ="senha"
             type="password"
           />
+          <a class="link link-esqueceu-senha">Esqueceu sua senha?</a>
 
-      </mat-form-field>
-      <button mat-raised-button [disabled]="loginForm.invalid">Entrar</button>
-      <div id="cadastreSe">
-     <a class="link" (click) ="irCadastrar()">Cadastre-se aqui</a>
-      </div>
-  </div>
-</form>
+      <button class="link" [disabled]="loginForm.invalid">Entrar</button>
+    </form>
+
+
+
+
+
